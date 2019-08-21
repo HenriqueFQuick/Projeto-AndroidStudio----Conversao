@@ -14,13 +14,24 @@
                   android:layout_marginBottom="100dp"
                   android:orientation="vertical">
 
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Converter"
+                  android:textSize="25sp"
+                  android:textAlignment="center"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintLeft_toLeftOf="parent"
+                  app:layout_constraintRight_toRightOf="parent"
+        />
+
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
-                android:text="Converter Temperatura"
+                android:text="Temperatura"
                 android:id="@+id/btn_temperatura"/>
 
         <Button android:layout_width="match_parent"
@@ -28,9 +39,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
-                android:text="Converter Peso"
+                android:text="Peso"
                 android:id="@+id/btn_peso"/>
 
         <Button android:layout_width="match_parent"
@@ -38,9 +49,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
-                android:text="Converter Altura"
+                android:text="Altura"
                 android:id="@+id/btn_altura"/>
 
         <Button android:layout_width="match_parent"
@@ -48,9 +59,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
-                android:text="Converter Distancia"
+                android:text="Distancia"
                 android:id="@+id/btn_distancia"/>
 
     </LinearLayout>

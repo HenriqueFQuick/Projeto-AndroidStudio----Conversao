@@ -11,6 +11,10 @@
             android:theme="@style/AppTheme">
         <activity android:name=".Temperatura">
         </activity>
+        <activity android:name=".Peso">
+        </activity>
+        <activity android:name=".Altura">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

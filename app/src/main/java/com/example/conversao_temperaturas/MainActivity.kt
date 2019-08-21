@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.btn_altura -> {
-                val intent = Intent(this, Temperatura::class.java)
+                val intent = Intent(this, Altura::class.java)
                 startActivity(intent)
             }
             R.id.btn_peso -> {
-                val intent = Intent(this, Temperatura::class.java)
+                val intent = Intent(this, Peso::class.java)
                 startActivity(intent)
             }
             R.id.btn_distancia -> {
