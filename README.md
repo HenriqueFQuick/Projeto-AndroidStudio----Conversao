@@ -9,10 +9,12 @@ Temperatura:
                   -Rankine
                  
 Peso:
-      Kg para:
+       Kg para:
                   -lbs
                   -kin
 Altura:
-      cm para:
+       cm para:
                   -foot
 Distancia:
+       Km para:
+                  -miles
