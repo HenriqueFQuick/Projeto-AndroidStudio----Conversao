@@ -20,24 +20,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        //verificar qual botao foi clicado
         when (v?.id) {
 
+            //redirecionar para a activity Temperatura
             R.id.btn_temperatura -> {
                 val intent = Intent(this, Temperatura::class.java)
                 startActivity(intent)
             }
+            //redirecionar para a activity Altura
             R.id.btn_altura -> {
                 val intent = Intent(this, Altura::class.java)
                 startActivity(intent)
             }
+            //redirecionar para a activity Peso
             R.id.btn_peso -> {
                 val intent = Intent(this, Peso::class.java)
                 startActivity(intent)
             }
+            //redirecionar para a activity Distancia
             R.id.btn_distancia -> {
                 val intent = Intent(this, Distancia::class.java)
                 startActivity(intent)
             }
+            //redirecionar para a activity Generico
             R.id.btn_generico -> {
                 val intent = Intent(this, Generico::class.java)
                 startActivity(intent)

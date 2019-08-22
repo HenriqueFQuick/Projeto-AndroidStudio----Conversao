@@ -56,8 +56,12 @@ class Peso : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+        //verificar qual botao foi pressionado
         when(v?.id){
+            //setar a resposta da conversao no resultado
             R.id.btn_Converter_Peso -> txt_Resultado_Peso.text = result
+
+            //redirecionar para a activity Main
             R.id.btn_voltar_Peso_Main ->{
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

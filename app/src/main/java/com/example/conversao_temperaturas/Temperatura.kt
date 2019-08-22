@@ -59,8 +59,12 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+        //verificar qual botao foi pressionado
         when(v?.id){
+            //setar a resposta da conversao no resultado
             R.id.btn_Converter_Temperatura -> txt_Resultado_Temperatura.text = result
+
+            //redirecionar para a activity Main
             R.id.btn_voltar_Temperatura_Main -> {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

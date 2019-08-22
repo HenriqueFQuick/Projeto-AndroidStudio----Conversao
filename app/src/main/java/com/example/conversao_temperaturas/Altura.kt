@@ -52,8 +52,12 @@ class Altura : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+        //verificar qual botao foi pressionado
         when(v?.id){
+            //setar a resposta da conversao no resultado
             R.id.btn_Converter_Altura -> txt_Resultado_Altura.text = result
+
+            //redirecionar para a activity Main
             R.id.btn_voltar_Altura_Main ->{
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

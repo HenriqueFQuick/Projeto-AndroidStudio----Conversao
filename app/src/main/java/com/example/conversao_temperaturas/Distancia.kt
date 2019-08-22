@@ -49,8 +49,12 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+        //verificar qual botao foi pressionado
         when(v?.id){
+            //setar a resposta da conversao no resultado
             R.id.btn_Converter_Distancia -> txt_Resultado_Distancia.text = result
+
+            //redirecionar para a activity Main
             R.id.btn_voltar_Distancia_Main ->{
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
