@@ -17,7 +17,7 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_temperatura)
 
         //verifica constantemente se o radiogroup foi alterado
-        radioGroup.setOnCheckedChangeListener { _ , checkedId ->
+        radioGroup_Temperatura.setOnCheckedChangeListener { _ , checkedId ->
             val radio: RadioButton = findViewById(checkedId)
             //calculo da temperatura para cada opcao apresentada
             tmp = when (radio.id) {
@@ -34,8 +34,8 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         }
 
         //listener do botao ( redireciona para o metodo onClick)
-        btn_Converter.setOnClickListener(this)
-        btn_voltar_Temp_Main.setOnClickListener(this)
+        btn_Converter_Temperatura.setOnClickListener(this)
+        btn_voltar_Temperatura_Main.setOnClickListener(this)
     }
 
     //metodo ativado quando o botao eh pressionado
@@ -52,7 +52,7 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
             4 -> ((temp * 9 / 5) + 491.67).toString()   //Convertendo para Rankine
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
-                if(v?.id == R.id.btn_Converter) {
+                if(v?.id == R.id.btn_Converter_Temperatura) {
                     Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                     "000"
                 }else "000"
@@ -60,8 +60,8 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         }
 
         when(v?.id){
-            R.id.btn_Converter -> txt_Resultado.text = result
-            R.id.btn_voltar_Temp_Main -> {
+            R.id.btn_Converter_Temperatura -> txt_Resultado_Temperatura.text = result
+            R.id.btn_voltar_Temperatura_Main -> {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }

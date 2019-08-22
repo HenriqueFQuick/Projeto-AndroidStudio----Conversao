@@ -8,8 +8,8 @@ import android.widget.RadioButton
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_peso.*
-import kotlinx.android.synthetic.main.activity_peso.btn_Converter
-import kotlinx.android.synthetic.main.activity_peso.radioGroup
+import kotlinx.android.synthetic.main.activity_altura.btn_Converter_Altura
+import kotlinx.android.synthetic.main.activity_altura.radioGroup_Altura
 
 class Altura : AppCompatActivity(), View.OnClickListener {
 
@@ -19,9 +19,9 @@ class Altura : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_altura)
 
-        radioGroup.setOnCheckedChangeListener { _ , checkedId ->
+        radioGroup_Altura.setOnCheckedChangeListener { _ , checkedId ->
             val radio: RadioButton = findViewById(checkedId)
-            //calculo da temperatura para cada opcao apresentada
+            //calculo da altura para cada opcao apresentada
             tmp = when (radio.id) {
                 R.id.op_Foot -> 1
                 else -> {
@@ -32,8 +32,8 @@ class Altura : AppCompatActivity(), View.OnClickListener {
             }
         }
 
-        btn_Converter.setOnClickListener(this)
-        btn_voltar_Alt_Main.setOnClickListener(this)
+        btn_Converter_Altura.setOnClickListener(this)
+        btn_voltar_Altura_Main.setOnClickListener(this)
     }
 
     override fun onClick(v: View?){
@@ -42,10 +42,10 @@ class Altura : AppCompatActivity(), View.OnClickListener {
         var result : String = ""
 
         result = when (tmp) {
-            1 -> (temp / 30.48).toString()             //Convertendo para Kelvin
+            1 -> (temp / 30.48).toString()             //Convertendo para Foot
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
-                if(v?.id == R.id.btn_Converter) {
+                if(v?.id == R.id.btn_Converter_Altura) {
                     Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                     "000"
                 }else "000"
@@ -53,8 +53,8 @@ class Altura : AppCompatActivity(), View.OnClickListener {
         }
 
         when(v?.id){
-            R.id.btn_Converter -> txt_Resultado_Altura.text = result
-            R.id.btn_voltar_Alt_Main ->{
+            R.id.btn_Converter_Altura -> txt_Resultado_Altura.text = result
+            R.id.btn_voltar_Altura_Main ->{
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }

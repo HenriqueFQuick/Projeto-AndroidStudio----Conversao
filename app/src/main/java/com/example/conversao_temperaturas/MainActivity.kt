@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.btn_distancia -> {
-                val intent = Intent(this, Temperatura::class.java)
+                val intent = Intent(this, Distancia::class.java)
                 startActivity(intent)
             }
         }
