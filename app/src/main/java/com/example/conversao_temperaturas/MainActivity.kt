@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_altura.setOnClickListener(this)
         btn_peso.setOnClickListener(this)
         btn_distancia.setOnClickListener(this)
+        btn_generico.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_distancia -> {
                 val intent = Intent(this, Distancia::class.java)
+                startActivity(intent)
+            }
+            R.id.btn_generico -> {
+                val intent = Intent(this, Generico::class.java)
                 startActivity(intent)
             }
         }

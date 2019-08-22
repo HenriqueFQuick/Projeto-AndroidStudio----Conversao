@@ -5,19 +5,29 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Distancia">
+        tools:context=".Generico">
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:id="@+id/Digite_A_Medida"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="100dp"
-              android:text="Digite a sua distancia em Km"
+              android:text="Digite a sua medida"
               android:textAlignment="center"
               android:textSize="22sp"/>
 
-    <EditText android:id="@+id/edt_Distancia"
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/Digite_A_Medida"
+              android:textSize="15sp"
+              android:hint="(Em metros, gramas, litros, bytes, etc...)"
+              android:textAlignment="center"/>
+
+    <EditText android:id="@+id/edt_Generico"
               android:layout_width="100dp"
               android:layout_height="wrap_content"
               android:text="0"
@@ -26,14 +36,14 @@
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="150sp"
               android:textAlignment="center"
-              android:inputType="numberDecimal"/>
+              android:inputType="number"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              app:layout_constraintTop_toBottomOf="@id/edt_Distancia"
+              app:layout_constraintTop_toBottomOf="@id/edt_Generico"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Temperatura"
+              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Generico"
               android:layout_marginBottom="360dp"
               android:layout_marginLeft="22dp"
               android:text="Converter para:"
@@ -46,34 +56,65 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginRight="80dp"
-            android:layout_marginBottom="40dp"
-            android:id="@+id/radioGroup_Distancia">
+            android:layout_marginTop="50dp"
+            android:id="@+id/radioGroup_Generico">
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_miles"
-                     android:text="Miles"
+                     android:id="@+id/op_K_"
+                     android:text="K_"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_H_"
+                     android:text="H_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_DA_"
+                     android:text="DA_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_D_"
+                     android:text="D_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_C_"
+                     android:text="C_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_M_"
+                     android:text="M_"
                      android:textSize="25sp"/>
 
 
     </RadioGroup>
 
-    <Button android:id="@+id/btn_Converter_Distancia"
+    <Button android:id="@+id/btn_Converter_Generico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Distancia"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico"
             android:text="Converter"
             android:padding="15dp"
             android:layout_marginBottom="100dp"/>
 
-    <TextView android:id="@+id/txt_Resultado_Distancia"
+    <TextView android:id="@+id/txt_Resultado_Generico"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              app:layout_constraintTop_toBottomOf="@id/btn_Converter_Distancia"
+              app:layout_constraintTop_toBottomOf="@id/btn_Converter_Generico"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
@@ -81,11 +122,11 @@
               android:textSize="50sp"
               android:textAlignment="center"/>
 
-    <Button android:id="@+id/btn_voltar_Distancia_Main"
+    <Button android:id="@+id/btn_voltar_Generico_Main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Distancia"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Distancia"
+            app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Generico"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="150dp"
