@@ -9,21 +9,37 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_peso.*
 import kotlinx.android.synthetic.main.activity_altura.btn_Converter_Altura
-import kotlinx.android.synthetic.main.activity_altura.radioGroup_Altura
+import kotlinx.android.synthetic.main.activity_altura.radioGroup_Altura1
 
 class Altura : AppCompatActivity(), View.OnClickListener {
 
-    private var tmp : Int = 0
+    private var tmp1 : Int = 0
+    private var tmp2 : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_altura)
 
-        radioGroup_Altura.setOnCheckedChangeListener { _ , checkedId ->
+        radioGroup_Altura1.setOnCheckedChangeListener { _ , checkedId ->
             val radio: RadioButton = findViewById(checkedId)
             //calculo da altura para cada opcao apresentada
-            tmp = when (radio.id) {
-                R.id.op_Foot -> 1
+            tmp1 = when (radio.id) {
+                R.id.op_Foot1 -> 1
+                R.id.op_cm1 -> 2
+                else -> {
+                    //Evitando erros ( improvavel de cair aqui)
+                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
+                    0
+                }
+            }
+        }
+
+        radioGroup_Altura2.setOnCheckedChangeListener { _ , checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            //calculo da altura para cada opcao apresentada
+            tmp2 = when (radio.id) {
+                R.id.op_Foot2 -> 1
+                R.id.op_cm2 -> 2
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -38,11 +54,33 @@ class Altura : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?){
 
-        var temp : Double = edt_Altura.text.toString().toDouble()
+        var temp : Double? = 0.0
+        try {
+            temp = edt_Altura.text.toString().toDouble()
+        }catch (e: Exception){
+            temp = temp ?: 0.0
+        }
         var result : String = ""
 
-        result = when (tmp) {
-            1 -> (temp / 30.48).toString()             //Convertendo para Foot
+        result = when (tmp1) {
+            1 -> {
+                when(tmp2){
+                    1 -> temp.toString()
+                    2 -> (temp!! * 30.48).toString()
+                    else -> {
+                        "0"
+                    }
+                }
+            }
+            2 -> {
+                when(tmp2){
+                    1 -> (temp!! / 30.48).toString()
+                    2 -> temp.toString()
+                    else -> {
+                        "0"
+                    }
+                }
+            }
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Altura) {

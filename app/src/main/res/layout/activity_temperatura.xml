@@ -14,12 +14,12 @@
               app:layout_constraintRight_toRightOf="parent"
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="100dp"
-              android:text="Digite a sua temperatura em Celcius"
+              android:text="Digite a sua temperatura"
               android:textAlignment="center"
               android:textSize="22sp"/>
 
     <EditText android:id="@+id/edt_Temperatura"
-              android:layout_width="match_parent"
+              android:layout_width="50dp"
               android:layout_height="wrap_content"
               android:text="0"
               app:layout_constraintLeft_toLeftOf="parent"
@@ -33,12 +33,14 @@
               android:layout_height="wrap_content"
               app:layout_constraintTop_toBottomOf="@id/edt_Temperatura"
               app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Temperatura"
-              android:layout_marginBottom="360dp"
-              android:layout_marginLeft="52dp"
-              android:text="Converter para:"
-              android:textSize="25sp"/>
+              app:layout_constraintLeft_toLeftOf="@id/radioGroup_Temperatura1"
+              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Temperatura2"
+              android:layout_marginBottom="400dp"
+              android:layout_marginLeft="125dp"
+              android:text="para"
+              android:textSize="30sp"
+              app:layout_constraintHorizontal_bias="0.84"
+              app:layout_constraintVertical_bias="1.0"/>
 
     <RadioGroup
             android:layout_width="wrap_content"
@@ -46,15 +48,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="40dp"
-            android:id="@+id/radioGroup_Temperatura">
+            android:id="@+id/radioGroup_Temperatura2">
 
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_Kelvin"
+                     android:id="@+id/op_Kelvin2"
                      android:text="Kelvin"
                      android:textSize="25sp"/>
 
@@ -62,7 +64,7 @@
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_Fahrenheit"
+                     android:id="@+id/op_Fahrenheit2"
                      android:text="Fahrenheit"
                      android:textSize="25sp"/>
 
@@ -70,7 +72,7 @@
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_Reaumur"
+                     android:id="@+id/op_Reaumur2"
                      android:text="Reaumur"
                      android:textSize="25dp"/>
 
@@ -78,8 +80,66 @@
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_Rankine"
+                     android:id="@+id/op_Rankine2"
                      android:text="Rankine"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Celsius2"
+                     android:text="Celsius"
+                     android:textSize="25sp"/>
+
+
+    </RadioGroup>
+
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/radioGroup_Temperatura1">
+
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Kelvin1"
+                     android:text="Kelvin"
+                     android:textSize="25sp"/>
+
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Fahrenheit1"
+                     android:text="Fahrenheit"
+                     android:textSize="25sp"/>
+
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Reaumur1"
+                     android:text="Reaumur"
+                     android:textSize="25dp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Rankine1"
+                     android:text="Rankine"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Celsius1"
+                     android:text="Celsius"
                      android:textSize="25sp"/>
 
 
@@ -91,10 +151,10 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Temperatura"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Temperatura1"
             android:text="Converter"
             android:padding="15dp"
-            android:layout_marginBottom="100dp"/>
+            android:layout_marginBottom="10dp"/>
 
     <TextView android:id="@+id/txt_Resultado_Temperatura"
               android:layout_width="wrap_content"
@@ -103,7 +163,7 @@
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
-              android:hint="000"
+              android:hint="0"
               android:textSize="50sp"
               android:textAlignment="center"/>
 
@@ -111,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Temperatura"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Temperatura"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Temperatura2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="150dp"

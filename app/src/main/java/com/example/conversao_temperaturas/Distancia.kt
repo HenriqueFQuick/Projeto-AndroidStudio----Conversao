@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_distancia.*
 import kotlinx.android.synthetic.main.activity_peso.*
 
@@ -35,11 +36,17 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var temp : Double = edt_Distancia.text.toString().toDouble()
+
+        var temp : Double? = 0.0
+        try {
+            temp = edt_Altura.text.toString().toDouble()
+        }catch (e: Exception){
+            temp = temp ?: 0.0
+        }
         var result : String = ""
 
         result = when (tmp) {
-            1 -> (temp / 1.609).toString()             //Convertendo para Miles
+            1 -> (temp!! / 1.609).toString()             //Convertendo para Miles
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Distancia) {

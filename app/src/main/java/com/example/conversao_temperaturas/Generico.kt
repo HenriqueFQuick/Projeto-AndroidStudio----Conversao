@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_distancia.*
 import kotlinx.android.synthetic.main.activity_generico.*
 
@@ -40,16 +41,22 @@ class Generico : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var temp : Double = edt_Generico.text.toString().toDouble()
+
+        var temp : Double? = 0.0
+        try {
+            temp = edt_Altura.text.toString().toDouble()
+        }catch (e: Exception){
+            temp = temp ?: 0.0
+        }
         var result : String = ""
 
         result = when (tmp) {
-            1 -> (temp * 1000).toString()             //Convertendo para K_
-            2-> (temp * 100).toString()             //Convertendo para H_
-            3-> (temp * 10).toString()             //Convertendo para DA_
-            4 -> (temp / 10).toString()             //Convertendo para D_
-            5-> (temp / 100).toString()             //Convertendo para C_
-            6 -> (temp / 1000).toString()             //Convertendo para M_
+            1 -> (temp!! * 1000).toString()             //Convertendo para K_
+            2-> (temp!! * 100).toString()             //Convertendo para H_
+            3-> (temp!! * 10).toString()             //Convertendo para DA_
+            4 -> (temp!! / 10).toString()             //Convertendo para D_
+            5-> (temp!! / 100).toString()             //Convertendo para C_
+            6 -> (temp!! / 1000).toString()             //Convertendo para M_
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Generico) {

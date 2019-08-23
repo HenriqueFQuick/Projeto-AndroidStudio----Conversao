@@ -18,7 +18,7 @@
               android:textSize="22sp"/>
 
     <EditText android:id="@+id/edt_Peso"
-              android:layout_width="100dp"
+              android:layout_width="50dp"
               android:layout_height="wrap_content"
               android:text="0"
               app:layout_constraintLeft_toLeftOf="parent"
@@ -33,33 +33,74 @@
               app:layout_constraintTop_toBottomOf="@id/edt_Peso"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toLeftOf="@+id/radioGroup"
+              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Peso2"
               android:layout_marginBottom="360dp"
-              android:layout_marginLeft="22dp"
-              android:text="Converter para:"
+              android:layout_marginLeft="130dp"
+              android:text="para"
               android:textSize="25sp"/>
 
     <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="80dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="40dp"
-            android:id="@+id/radioGroup_Peso">
+            android:id="@+id/radioGroup_Peso2">
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_lbs"
+                     android:id="@+id/op_Kg2"
+                     android:text="Kg"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_lbs2"
                      android:text="Lbs"
                      android:textSize="25sp"/>
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_kin"
+                     android:id="@+id/op_kin2"
+                     android:text="Kin"
+                     android:textSize="25sp"/>
+
+
+    </RadioGroup>
+
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@id/radioGroup_Peso2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="160dp"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/radioGroup_Peso1">
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Kg1"
+                     android:text="Kg"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_lbs1"
+                     android:text="Lbs"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_kin1"
                      android:text="Kin"
                      android:textSize="25sp"/>
 
@@ -72,7 +113,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Peso"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Peso1"
             android:text="Converter"
             android:padding="15dp"
             android:layout_marginBottom="100dp"/>
@@ -84,7 +125,7 @@
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
-              android:hint="000"
+              android:hint="0"
               android:textSize="50sp"
               android:textAlignment="center"/>
 
@@ -92,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Peso"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Peso1"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="150dp"
