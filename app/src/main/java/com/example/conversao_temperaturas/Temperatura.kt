@@ -64,7 +64,7 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         // guarda o valor digitado no edt_Temperatura1
         var temp : Double? = 0.0
         try {
-            temp = edt_Altura.text.toString().toDouble()
+            temp = edt_Temperatura.text.toString().toDouble()
         }catch (e: Exception){
             //Se nao foi digitado nenhum valor
             Toast.makeText(this, "Digite um valor", Toast.LENGTH_LONG).show()

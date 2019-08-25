@@ -9,6 +9,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_distancia.*
 import kotlinx.android.synthetic.main.activity_generico.*
+import kotlinx.android.synthetic.main.activity_temperatura.*
 
 class Generico : AppCompatActivity(), View.OnClickListener {
     private var tmp : Int = 0
@@ -44,7 +45,7 @@ class Generico : AppCompatActivity(), View.OnClickListener {
 
         var temp : Double? = 0.0
         try {
-            temp = edt_Altura.text.toString().toDouble()
+            temp = edt_Temperatura.text.toString().toDouble()
         }catch (e: Exception){
             //Se nao foi digitado nenhum valor
             Toast.makeText(this, "Digite um valor", Toast.LENGTH_LONG).show()

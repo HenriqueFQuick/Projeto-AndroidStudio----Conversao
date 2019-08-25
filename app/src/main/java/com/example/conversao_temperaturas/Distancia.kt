@@ -57,7 +57,7 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
 
         var temp : Double? = 0.0
         try {
-            temp = edt_Altura.text.toString().toDouble()
+            temp = edt_Distancia.text.toString().toDouble()
         }catch (e: Exception){
             //Se nao foi digitado nenhum valor
             Toast.makeText(this, "Digite um valor", Toast.LENGTH_LONG).show()
