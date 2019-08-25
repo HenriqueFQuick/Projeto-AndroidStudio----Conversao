@@ -1,7 +1,11 @@
 # Projeto-AndroidStudio----Conversao_de_Medidas
 
 App para conversao de Medidas feito no AndroidStudio com Kotlin
+
+
 Temperatura:
+
+
       A partir    Para
       
       Celsius     Kelvin
@@ -10,6 +14,8 @@ Temperatura:
                   Rankine
                  
 Peso:
+
+
       A partir    Para
       
       Kg          Kg
@@ -17,17 +23,23 @@ Peso:
       Kin         Kin
       
 Altura:
+
+
       A partir    Para
       
       Foot        Foot
       Cm          Cm
       
 Distancia:
+
+
       A partir    Para
       
       Km          Miles
       
 Generico:
+
+
       A partir    Para
       
       _           K_
