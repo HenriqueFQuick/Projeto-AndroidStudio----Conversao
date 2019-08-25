@@ -2,12 +2,37 @@
 
 App para conversao de Medidas feito no AndroidStudio com Kotlin
 Temperatura:
-      Celcius para:
-                  -Kelvin
-                  -Fahrenheit
-                  -Reaumur
-                  -Rankine
+      A partir    Para
+      
+      Celsius     Kelvin
+                  Fahrenheit
+                  Reaumur
+                  Rankine
                  
 Peso:
+      A partir    Para
+      
+      Kg          Kg
+      Lbs         Lbs
+      Kin         Kin
+      
 Altura:
+      A partir    Para
+      
+      Foot        Foot
+      Cm          Cm
+      
 Distancia:
+      A partir    Para
+      
+      Km          Miles
+      
+Generico:
+      A partir    Para
+      
+      _           K_
+                  H_
+                  DA_
+                  D_
+                  C_
+                  M_
