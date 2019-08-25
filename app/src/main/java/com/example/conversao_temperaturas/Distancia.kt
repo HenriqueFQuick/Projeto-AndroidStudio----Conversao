@@ -22,7 +22,7 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo da distancia para cada opcao apresentada
             tmp = when (radio.id) {
-                R.id.op_miles -> 1
+                R.id.op_miles -> 1 //Convertendo a partir de miles
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()

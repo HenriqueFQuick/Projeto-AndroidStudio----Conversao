@@ -21,12 +21,12 @@ class Generico : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo da medida para cada opcao apresentada
             tmp = when (radio.id) {
-                R.id.op_K_ -> 1
-                R.id.op_H_ -> 2
-                R.id.op_DA_ -> 3
-                R.id.op_D_ -> 4
-                R.id.op_C_ -> 5
-                R.id.op_M_ -> 6
+                R.id.op_K_ -> 1  //Convertendo a partiir de K_
+                R.id.op_H_ -> 2  //Convertendo a partiir de H_
+                R.id.op_DA_ -> 3 //Convertendo a partiir de DA_
+                R.id.op_D_ -> 4  //Convertendo a partiir de D_
+                R.id.op_C_ -> 5  //Convertendo a partiir de C_
+                R.id.op_M_ -> 6  //Convertendo a partiir de M_
 
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
@@ -53,12 +53,12 @@ class Generico : AppCompatActivity(), View.OnClickListener {
         var result : String = ""
 
         result = when (tmp) {
-            1 -> (temp!! * 1000).toString()             //Convertendo para K_
-            2-> (temp!! * 100).toString()             //Convertendo para H_
-            3-> (temp!! * 10).toString()             //Convertendo para DA_
-            4 -> (temp!! / 10).toString()             //Convertendo para D_
-            5-> (temp!! / 100).toString()             //Convertendo para C_
-            6 -> (temp!! / 1000).toString()             //Convertendo para M_
+            1 -> (temp!! * 1000).toString()  //Convertendo para K_
+            2-> (temp!! * 100).toString()    //Convertendo para H_
+            3-> (temp!! * 10).toString()     //Convertendo para DA_
+            4 -> (temp!! / 10).toString()    //Convertendo para D_
+            5-> (temp!! / 100).toString()    //Convertendo para C_
+            6 -> (temp!! / 1000).toString()  //Convertendo para M_
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Generico) {

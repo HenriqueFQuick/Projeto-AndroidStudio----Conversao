@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
-import kotlinx.android.synthetic.main.activity_peso.*
 import kotlinx.android.synthetic.main.activity_altura.btn_Converter_Altura
 import kotlinx.android.synthetic.main.activity_altura.radioGroup_Altura1
 

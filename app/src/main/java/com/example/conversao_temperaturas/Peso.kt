@@ -6,12 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_peso.*
 import kotlinx.android.synthetic.main.activity_peso.btn_Converter_Peso
 import kotlinx.android.synthetic.main.activity_peso.btn_voltar_Peso_Main
 import kotlinx.android.synthetic.main.activity_peso.radioGroup_Peso1
-import kotlinx.android.synthetic.main.activity_temperatura.*
 
 class Peso : AppCompatActivity(), View.OnClickListener {
 
