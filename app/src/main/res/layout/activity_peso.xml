@@ -13,7 +13,7 @@
               app:layout_constraintRight_toRightOf="parent"
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="100dp"
-              android:text="Digite o seu peso em Kg"
+              android:text="Digite o seu peso"
               android:textAlignment="center"
               android:textSize="22sp"/>
 
@@ -32,54 +32,19 @@
               android:layout_height="wrap_content"
               app:layout_constraintTop_toBottomOf="@id/edt_Peso"
               app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintLeft_toRightOf="@id/radioGroup_Peso1"
               app:layout_constraintRight_toLeftOf="@+id/radioGroup_Peso2"
-              android:layout_marginBottom="360dp"
-              android:layout_marginLeft="130dp"
+              android:layout_marginBottom="400dp"
               android:text="para"
               android:textSize="25sp"/>
 
     <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="40dp"
-            android:id="@+id/radioGroup_Peso2">
-
-        <RadioButton android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:checked="false"
-                     android:id="@+id/op_Kg2"
-                     android:text="Kg"
-                     android:textSize="25sp"/>
-
-        <RadioButton android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:checked="false"
-                     android:id="@+id/op_lbs2"
-                     android:text="Lbs"
-                     android:textSize="25sp"/>
-
-        <RadioButton android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:checked="false"
-                     android:id="@+id/op_kin2"
-                     android:text="Kin"
-                     android:textSize="25sp"/>
-
-
-    </RadioGroup>
-
-    <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toLeftOf="@id/radioGroup_Peso2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="160dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginBottom="40dp"
             android:id="@+id/radioGroup_Peso1">
 
@@ -101,6 +66,40 @@
                      android:layout_height="wrap_content"
                      android:checked="false"
                      android:id="@+id/op_kin1"
+                     android:text="Kin"
+                     android:textSize="25sp"/>
+
+
+    </RadioGroup>
+
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="80dp"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/radioGroup_Peso2">
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_Kg2"
+                     android:text="Kg"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_lbs2"
+                     android:text="Lbs"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_kin2"
                      android:text="Kin"
                      android:textSize="25sp"/>
 
@@ -133,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Peso"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Peso1"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Peso2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="150dp"

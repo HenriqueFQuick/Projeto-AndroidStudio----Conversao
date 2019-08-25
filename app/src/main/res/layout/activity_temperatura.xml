@@ -33,14 +33,11 @@
               android:layout_height="wrap_content"
               app:layout_constraintTop_toBottomOf="@id/edt_Temperatura"
               app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintLeft_toLeftOf="@id/radioGroup_Temperatura1"
+              app:layout_constraintLeft_toRightOf="@id/radioGroup_Temperatura1"
               app:layout_constraintRight_toLeftOf="@+id/radioGroup_Temperatura2"
               android:layout_marginBottom="400dp"
-              android:layout_marginLeft="125dp"
               android:text="para"
-              android:textSize="30sp"
-              app:layout_constraintHorizontal_bias="0.84"
-              app:layout_constraintVertical_bias="1.0"/>
+              android:textSize="30sp"/>
 
     <RadioGroup
             android:layout_width="wrap_content"

@@ -36,18 +36,74 @@
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="150sp"
               android:textAlignment="center"
-              android:inputType="number"/>
+              android:inputType="numberDecimal"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               app:layout_constraintTop_toBottomOf="@id/edt_Generico"
               app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintLeft_toLeftOf="parent"
-              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Generico"
-              android:layout_marginBottom="360dp"
-              android:layout_marginLeft="22dp"
-              android:text="Converter para:"
+              app:layout_constraintLeft_toRightOf="@id/radioGroup_Generico1"
+              app:layout_constraintRight_toLeftOf="@+id/radioGroup_Generico2"
+              android:layout_marginBottom="400dp"
+              android:text="Para"
               android:textSize="25sp"/>
+
+    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/radioGroup_Generico1">
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_K_1"
+                     android:text="K_"
+                     android:textSize="25sp"/>
+
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_H_1"
+                     android:text="H_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_DA_1"
+                     android:text="DA_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op__1"
+                     android:text="_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_D_1"
+                     android:text="D_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_C_1"
+                     android:text="C_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_M_1"
+                     android:text="M_"
+                     android:textSize="25sp"/>
+
+
+    </RadioGroup>
 
     <RadioGroup
             android:layout_width="wrap_content"
@@ -57,43 +113,49 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginRight="80dp"
             android:layout_marginTop="50dp"
-            android:id="@+id/radioGroup_Generico">
+            android:id="@+id/radioGroup_Generico2">
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_K_"
+                     android:id="@+id/op_K_2"
                      android:text="K_"
                      android:textSize="25sp"/>
 
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_H_"
+                     android:id="@+id/op_H_2"
                      android:text="H_"
                      android:textSize="25sp"/>
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_DA_"
+                     android:id="@+id/op_DA_2"
                      android:text="DA_"
                      android:textSize="25sp"/>
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_D_"
+                     android:id="@+id/op__2"
+                     android:text="_"
+                     android:textSize="25sp"/>
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="false"
+                     android:id="@+id/op_D_2"
                      android:text="D_"
                      android:textSize="25sp"/>
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_C_"
+                     android:id="@+id/op_C_2"
                      android:text="C_"
                      android:textSize="25sp"/>
         <RadioButton android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:checked="false"
-                     android:id="@+id/op_M_"
+                     android:id="@+id/op_M_2"
                      android:text="M_"
                      android:textSize="25sp"/>
 
@@ -106,7 +168,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico1"
             android:text="Converter"
             android:padding="15dp"
             android:layout_marginBottom="100dp"/>
@@ -126,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Generico"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup_Generico2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="150dp"

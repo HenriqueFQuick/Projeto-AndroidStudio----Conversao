@@ -74,19 +74,71 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
 
         result = when (tmp1) {
             1 -> { //Kelvin
-                (temp!! + 273.15).toString()
+                when(tmp2){
+                    1 -> (temp).toString()                                  //Kelvin para Kelvin
+                    2 -> (((temp!! - 273.15)* 9 / 5) + 32).toString()       //Kelvin para Fahrenheit
+                    3 -> ((temp!! - 273.15) * 4/5).toString()               //Kelvin para Reaumur
+                    4 -> (((temp!! - 273.15) * 9 / 5) + 491.67).toString()  //Kelvin para Rankine
+                    5 -> (temp!! - 273.15).toString()                       //Kelvin para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
             }
             2 -> {  //Fahrenheit
+                when(tmp2){
+                    1 -> (((temp!! / 9 / 5) - 32) + 273.15).toString()              //Fahrenheit para Kelvin
+                    2 -> (temp).toString()                                          //Fahrenheit para Fahrenheit
+                    3 -> (((temp!! / 9 / 5) - 32) * 4/5).toString()                 //Fahrenheit para Reaumur
+                    4 -> ((((temp!! / 9 / 5) - 32) * 9 / 5) + 491.67).toString()    //Fahrenheit para Rankine
+                    5 -> ((temp!! * 9 / 5) + 32).toString()                         //Fahrenheit para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
                 ((temp!! * 9 / 5) + 32).toString()
             }
             3 -> {  //Reaumur
-                (temp!! * 4 / 5).toString()
+                when(tmp2){
+                    1 -> ((temp!! / 4/5) + 273.15).toString()           //Reaumur para Kelvin
+                    2 -> (((temp!! / 4/5)* 9 / 5) + 32).toString()      //Reaumur para Fahrenheit
+                    3 -> (temp).toString()                              //Reaumur para Reaumur
+                    4 -> (((temp!! / 4/5) * 9 / 5) + 491.67).toString() //Reaumur para Rankine
+                    5 -> (temp!! / 4/5).toString()                      //Reaumur para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
             }
             4 -> {  //Rankine
-                ((temp!! * 9 / 5) + 491.67).toString()
+                when(tmp2){
+                    1 -> (((temp!! / 9 / 5) - 491.67) + 273.15).toString()      //Rankine para Kelvin
+                    2 -> ((((temp!! / 9 / 5) - 491.67)* 9 / 5) + 32).toString() //Rankine para Fahrenheit
+                    3 -> (((temp!! / 9 / 5) - 491.67) * 4/5).toString()         //Rankine para Reaumur
+                    4 -> (temp).toString()                                      //Rankine para Rankine
+                    5 -> ((temp!! / 9 / 5) - 491.67).toString()                 //Rankine para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
+                ((temp!! / 9 / 5) - 491.67).toString()
             }
             5 -> {  //Celsius
-                temp.toString()
+                when(tmp2){
+                    1 -> (temp!! + 273.15).toString()           //Celsius para Kelvin
+                    2 -> ((temp!! * 9 / 5) + 32).toString()     //Celsius para Fahrenheit
+                    3 -> (temp!! * 4 / 5).toString()            //Celsius para Reaumur
+                    4 -> ((temp!! * 9 / 5) + 491.67).toString() //Celsius para Rankine
+                    5 -> (temp).toString()                      //Celsius para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
             }
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
