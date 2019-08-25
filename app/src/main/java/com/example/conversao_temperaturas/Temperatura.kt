@@ -23,11 +23,11 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo da temperatura para cada opcao apresentada
             tmp1 = when (radio.id) {
-                R.id.op_Kelvin1 -> 1
-                R.id.op_Fahrenheit1 -> 2
-                R.id.op_Reaumur1 -> 3
-                R.id.op_Rankine1 -> 4
-                R.id.op_Celsius1 -> 5
+                R.id.op_Kelvin1 -> 1     //Convertendo a partir de Kelvin
+                R.id.op_Fahrenheit1 -> 2 //Convertendo a partir de Fahrenheit
+                R.id.op_Reaumur1 -> 3    //Convertendo a partir de Reaumur
+                R.id.op_Rankine1 -> 4    //Convertendo a partir de Rankine
+                R.id.op_Celsius1 -> 5    //Convertendo a partir de Celsius
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -35,17 +35,16 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-
         //verifica constantemente se o radiogroup2 foi alterado
         radioGroup_Temperatura2.setOnCheckedChangeListener { _ , checkedId ->
             val radio: RadioButton = findViewById(checkedId)
             //calculo da temperatura para cada opcao apresentada
             tmp2 = when (radio.id) {
-                R.id.op_Kelvin2 -> 1
-                R.id.op_Fahrenheit2 -> 2
-                R.id.op_Reaumur2 -> 3
-                R.id.op_Rankine2 -> 4
-                R.id.op_Celsius2 -> 5
+                R.id.op_Kelvin2 -> 1      //Convertendo para Kelvin
+                R.id.op_Fahrenheit2 -> 2  //Convertendo para Fahrenheit
+                R.id.op_Reaumur2 -> 3     //Convertendo para Reaumur
+                R.id.op_Rankine2 -> 4     //Convertendo para Rankine
+                R.id.op_Celsius2 -> 5     //Convertendo para Celsius
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -74,19 +73,19 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         var result : String = ""
 
         result = when (tmp1) {
-            1 -> {
+            1 -> { //Kelvin
                 (temp!! + 273.15).toString()
             }
-            2 -> {
+            2 -> {  //Fahrenheit
                 ((temp!! * 9 / 5) + 32).toString()
             }
-            3 -> {
+            3 -> {  //Reaumur
                 (temp!! * 4 / 5).toString()
             }
-            4 -> {
+            4 -> {  //Rankine
                 ((temp!! * 9 / 5) + 491.67).toString()
             }
-            5 -> {
+            5 -> {  //Celsius
                 temp.toString()
             }
             else -> {
