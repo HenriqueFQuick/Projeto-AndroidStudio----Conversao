@@ -76,7 +76,7 @@ class Altura : AppCompatActivity(), View.OnClickListener {
             }
             2 -> { //Cm
                 when(tmp2){
-                    1 -> (temp!! / 30.48).toString() //m para Foot
+                    1 -> (temp!! / 30.48).toString() //cm para foot
                     2 -> temp.toString()             //cm para cm
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()

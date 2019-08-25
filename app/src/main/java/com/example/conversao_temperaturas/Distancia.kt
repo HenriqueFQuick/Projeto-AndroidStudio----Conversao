@@ -12,17 +12,35 @@ import kotlinx.android.synthetic.main.activity_peso.*
 
 class Distancia : AppCompatActivity(), View.OnClickListener {
 
-    private var tmp : Int = 0
+    private var tmp1 : Int = 0
+    private var tmp2 : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_distancia)
 
-        //verifica constantemente se o radiogroup foi alterado
-        radioGroup_Distancia.setOnCheckedChangeListener { _ , checkedId ->
+        //verifica constantemente se o radiogroup1 foi alterado
+        radioGroup_Distancia1.setOnCheckedChangeListener { _ , checkedId ->
             val radio: RadioButton = findViewById(checkedId)
             //calculo da distancia para cada opcao apresentada
-            tmp = when (radio.id) {
-                R.id.op_miles -> 1 //Convertendo a partir de miles
+            tmp1 = when (radio.id) {
+                R.id.op_miles1 -> 1 //Convertendo a partir de miles
+                R.id.op_Kg1 -> 2    //Convertendo a partir de Km
+                else -> {
+                    //Evitando erros ( improvavel de cair aqui)
+                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
+                    0
+                }
+            }
+        }
+
+        //verifica constantemente se o radiogroup2 foi alterado
+        radioGroup_Distancia2.setOnCheckedChangeListener { _ , checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            //calculo da distancia para cada opcao apresentada
+            tmp2 = when (radio.id) {
+                R.id.op_miles2 -> 1 //Convertendo para miles
+                R.id.op_Kg2 -> 2    //Convertendo para Km
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -47,8 +65,27 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
         }
         var result : String = ""
 
-        result = when (tmp) {
-            1 -> (temp!! / 1.609).toString()             //Convertendo para Miles
+        result = when (tmp1) {
+            1 -> { //Miles
+                when(tmp2){
+                    1 -> temp.toString()             //Miles para Miles
+                    2 -> (temp!! * 1.609).toString() //Miles para Km
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
+                    }
+                }
+            }
+            2 -> { //Km
+                when(tmp2){
+                    1 -> (temp!! / 1.609).toString() //Km para Miles
+                    2 -> temp.toString()             //Km para Km
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
+                    }
+                }
+            }
             else -> {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Distancia) {
