@@ -107,8 +107,8 @@ class Peso : AppCompatActivity(), View.OnClickListener {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup1
                 if(v?.id == R.id.btn_Converter_Peso) {
                     Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
-                    "000"
-                }else "000"
+                    "0"
+                }else "0"
             }
         }
 

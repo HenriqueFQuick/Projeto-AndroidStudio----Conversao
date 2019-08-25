@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Distancia">
+        tools:context=".Distancia"
+        android:layout_margin="16dp">
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -15,10 +16,10 @@
               android:layout_marginTop="100dp"
               android:text="Digite a sua distancia"
               android:textAlignment="center"
-              android:textSize="22sp"/>
+              android:textSize="30sp"/>
 
     <EditText android:id="@+id/edt_Distancia"
-              android:layout_width="100dp"
+              android:layout_width="50dp"
               android:layout_height="wrap_content"
               android:text="0"
               app:layout_constraintLeft_toLeftOf="parent"
@@ -35,7 +36,7 @@
               app:layout_constraintLeft_toRightOf="@id/radioGroup_Distancia1"
               app:layout_constraintRight_toLeftOf="@+id/radioGroup_Distancia2"
               android:layout_marginBottom="400dp"
-              android:text="Para"
+              android:text="para"
               android:textSize="25sp"/>
 
     <RadioGroup
@@ -44,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginBottom="40dp"
             android:id="@+id/radioGroup_Distancia1">
 
@@ -71,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="80dp"
+            android:layout_marginRight="60dp"
             android:layout_marginBottom="40dp"
             android:id="@+id/radioGroup_Distancia2">
 
@@ -98,10 +99,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Distancia2"
+            android:layout_marginBottom="100dp"
             android:text="Converter"
-            android:padding="15dp"
-            android:layout_marginBottom="100dp"/>
+            android:padding="15dp"/>
 
     <TextView android:id="@+id/txt_Resultado_Distancia"
               android:layout_width="wrap_content"
@@ -110,21 +110,17 @@
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
-              android:hint="0.0"
+              android:hint="0"
               android:textSize="50sp"
               android:textAlignment="center"/>
 
     <Button android:id="@+id/btn_voltar_Distancia_Main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/txt_Resultado_Distancia"
-            app:layout_constraintTop_toBottomOf="@id/radioGroup_Distancia2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="150dp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintHorizontal_bias="0.758"
-            app:layout_constraintVertical_bias="0.888"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
             android:text="Voltar"/>
 
 </android.support.constraint.ConstraintLayout>

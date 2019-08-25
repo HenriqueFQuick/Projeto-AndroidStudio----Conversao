@@ -90,8 +90,8 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
                 //Se nao foi selecionada nenhuma opcao no RadioGroup
                 if(v?.id == R.id.btn_Converter_Distancia) {
                     Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
-                    "000"
-                }else "000"
+                    "0"
+                }else "0"
             }
         }
 
