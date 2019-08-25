@@ -6,12 +6,13 @@ App para conversao de Medidas feito no AndroidStudio com Kotlin
 Temperatura:
 
 
-      A partir    Para
+      A partir          Para
       
-      Celsius     Kelvin
-                  Fahrenheit
-                  Reaumur
-                  Rankine
+      Kelvin            Kelvin                        
+      Fahrenheit        Fahrenheit
+      Reaumur           Reaumur
+      Rankine           Rankine
+      Celsius           Celsius
                  
 Peso:
 
@@ -40,9 +41,10 @@ Generico:
 
       A partir    Para
       
-      _           K_
-                  H_
-                  DA_
-                  D_
-                  C_
-                  M_
+      K_          K_
+      H_          H_
+      DA_         DA_
+      _           _
+      D_          D_
+      C_          C_
+      M_          M_
