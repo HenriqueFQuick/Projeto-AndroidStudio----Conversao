@@ -6,18 +6,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
-        android:layout_margin="8dp">
+        android:layout_margin="40dp">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:layout_marginTop="100dp"
-                  android:layout_marginBottom="100dp"
+                  android:layout_marginTop="70dp"
+                  android:layout_marginBottom="70dp"
                   android:orientation="vertical">
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:text="Converter"
-                  android:textSize="50sp"
+                  android:textSize="60sp"
                   android:textAlignment="center"
                   app:layout_constraintTop_toTopOf="parent"
                   app:layout_constraintLeft_toLeftOf="parent"
@@ -29,10 +29,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
                 android:text="Temperatura"
-                android:id="@+id/btn_temperatura"/>
+                android:id="@+id/btn_temperatura"
+        android:background="@drawable/shape"/>
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +43,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Peso"
-                android:id="@+id/btn_peso"/>
+                android:id="@+id/btn_peso"
+                android:background="@drawable/shape"/>
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +54,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Altura"
-                android:id="@+id/btn_altura"/>
+                android:id="@+id/btn_altura"
+                android:background="@drawable/shape"/>
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +65,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Distancia"
-                android:id="@+id/btn_distancia"/>
+                android:id="@+id/btn_distancia"
+                android:background="@drawable/shape"/>
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +76,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Generico"
-                android:id="@+id/btn_generico"/>
+                android:id="@+id/btn_generico"
+                android:background="@drawable/shape"/>
 
     </LinearLayout>
 

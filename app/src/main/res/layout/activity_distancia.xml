@@ -101,7 +101,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="100dp"
             android:text="Converter"
-            android:padding="15dp"/>
+            android:padding="15dp"
+            android:background="@drawable/shape"/>
 
     <TextView android:id="@+id/txt_Resultado_Distancia"
               android:layout_width="wrap_content"
@@ -121,6 +122,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:text="Voltar"/>
+            android:text="Voltar"
+            android:background="@drawable/shape"/>
 
 </android.support.constraint.ConstraintLayout>
