@@ -27,9 +27,9 @@ class Peso : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo do peso para cada opcao apresentada
             tmp1 = when (radio.id) {
-                R.id.op_lbs1 -> 1
-                R.id.op_kin1 -> 2
-                R.id.op_Kg1  -> 3
+                R.id.op_lbs1 -> 1  //Convertendo a partir de lbs
+                R.id.op_kin1 -> 2  //Convertendo a partir de kin
+                R.id.op_Kg1  -> 3  //Convertendo a partir de kg
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -43,9 +43,9 @@ class Peso : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo do peso para cada opcao apresentada
             tmp2 = when (radio.id) {
-                R.id.op_lbs2 -> 1
-                R.id.op_kin2 -> 2
-                R.id.op_Kg2  -> 3
+                R.id.op_lbs2 -> 1  //Convertendo para lbs
+                R.id.op_kin2 -> 2  //Convertendo para kin
+                R.id.op_Kg2  -> 3  //Convertendo para kg
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -64,44 +64,49 @@ class Peso : AppCompatActivity(), View.OnClickListener {
         try {
             temp = edt_Peso.text.toString().toDouble()
         }catch (e: Exception){
+            //Se nao foi digitado nenhum valor
+            Toast.makeText(this, "Digite um valor", Toast.LENGTH_LONG).show()
             temp = temp ?: 0.0
         }
         var result : String = ""
 
         result = when (tmp1) {
-            1 -> {
+            1 -> {  //Lbs
                 when(tmp2){
-                    1 -> temp.toString()
-                    2 -> (temp!! / 1.322).toString()
-                    3 -> (temp!! / 2.205).toString()
+                    1 -> temp.toString()             //lbs para lbs
+                    2 -> (temp!! / 1.322).toString() //lbs para kin
+                    3 -> (temp!! / 2.205).toString() //lbs para kg
                     else ->{
-                        "0"
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
-            }             //Convertendo para Lbs
-            2 -> {
+            }
+            2 -> { //Kin
                 when(tmp2){
-                    1 -> (temp!! * 1.322).toString()
-                    2 -> temp.toString()
-                    3 -> (temp!! / 1.66666667).toString()
+                    1 -> (temp!! * 1.322).toString()      //kin para lbs
+                    2 -> temp.toString()                  //kin para kin
+                    3 -> (temp!! / 1.66666667).toString() //kin para kg
                     else ->{
-                        "0"
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
-            }       //Convertendo para kin
-            3 -> {
+            }
+            3 -> {  //Kg
                 (temp!! * 2.205).toString()
                 when(tmp2){
-                    1 -> (temp!! * 2.205).toString()
-                    2 -> (temp!! * 1.66666667).toString()
-                    3 -> temp.toString()
+                    1 -> (temp!! * 2.205).toString()      //Kg para lbs
+                    2 -> (temp!! * 1.66666667).toString() //Kg para kin
+                    3 -> temp.toString()                  //Kg para Kg
                     else ->{
-                        "0"
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
             }
             else -> {
-                //Se nao foi selecionada nenhuma opcao no RadioGroup
+                //Se nao foi selecionada nenhuma opcao no RadioGroup1
                 if(v?.id == R.id.btn_Converter_Peso) {
                     Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                     "000"

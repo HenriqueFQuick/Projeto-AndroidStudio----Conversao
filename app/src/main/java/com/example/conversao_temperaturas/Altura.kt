@@ -24,8 +24,8 @@ class Altura : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo da altura para cada opcao apresentada
             tmp1 = when (radio.id) {
-                R.id.op_Foot1 -> 1
-                R.id.op_cm1 -> 2
+                R.id.op_Foot1 -> 1  //Convertendo a partir de foot
+                R.id.op_cm1 -> 2    //Convertendo a partir de cm
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -38,8 +38,8 @@ class Altura : AppCompatActivity(), View.OnClickListener {
             val radio: RadioButton = findViewById(checkedId)
             //calculo da altura para cada opcao apresentada
             tmp2 = when (radio.id) {
-                R.id.op_Foot2 -> 1
-                R.id.op_cm2 -> 2
+                R.id.op_Foot2 -> 1  //Covnertendo para foot
+                R.id.op_cm2 -> 2    //Convertendo para cm
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -58,26 +58,30 @@ class Altura : AppCompatActivity(), View.OnClickListener {
         try {
             temp = edt_Altura.text.toString().toDouble()
         }catch (e: Exception){
+            //Se nao foi digitado nenhum valor
+            Toast.makeText(this, "Digite um valor", Toast.LENGTH_LONG).show()
             temp = temp ?: 0.0
         }
         var result : String = ""
 
         result = when (tmp1) {
-            1 -> {
+            1 -> { //Foot
                 when(tmp2){
-                    1 -> temp.toString()
-                    2 -> (temp!! * 30.48).toString()
+                    1 -> temp.toString()             //foot para foot
+                    2 -> (temp!! * 30.48).toString() //foot para cm
                     else -> {
-                        "0"
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
             }
-            2 -> {
+            2 -> { //Cm
                 when(tmp2){
-                    1 -> (temp!! / 30.48).toString()
-                    2 -> temp.toString()
+                    1 -> (temp!! / 30.48).toString() //m para Foot
+                    2 -> temp.toString()             //cm para cm
                     else -> {
-                        "0"
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
+                        "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
             }

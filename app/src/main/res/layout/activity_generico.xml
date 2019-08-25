@@ -118,7 +118,7 @@
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
-              android:hint="0"
+              android:hint="0.0"
               android:textSize="50sp"
               android:textAlignment="center"/>
 
