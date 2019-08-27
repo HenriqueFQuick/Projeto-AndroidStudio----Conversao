@@ -1,6 +1,7 @@
 # Projeto-AndroidStudio----Conversao_de_Medidas
 
-App para conversao de Medidas feito no AndroidStudio com Kotlin
+(Falta a parte do layout - deixar bonito)
+App para conversao de medidas feito no AndroidStudio com a linguagem Kotlin
 
 
 Temperatura:
