@@ -4,51 +4,45 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_altura.*
-import kotlinx.android.synthetic.main.activity_altura.btn_Converter_Altura
-import kotlinx.android.synthetic.main.activity_altura.radioGroup_Altura1
 
-class Altura : AppCompatActivity(), View.OnClickListener {
+class Altura : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    private var tmp1 : Int = 0
-    private var tmp2 : Int = 0
+    private var opcao1 : String = ""
+    private var opcao2 : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_altura)
 
-        radioGroup_Altura1.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da altura para cada opcao apresentada
-            tmp1 = when (radio.id) {
-                R.id.op_Foot1 -> 1  //Convertendo a partir de foot
-                R.id.op_cm1 -> 2    //Convertendo a partir de cm
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Altura1, android.R.layout.simple_spinner_item).also{adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Altura1.adapter = adapter
         }
-
-        radioGroup_Altura2.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da altura para cada opcao apresentada
-            tmp2 = when (radio.id) {
-                R.id.op_Foot2 -> 1  //Covnertendo para foot
-                R.id.op_cm2 -> 2    //Convertendo para cm
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Altura2, android.R.layout.simple_spinner_item).also{adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Altura2.adapter = adapter
         }
-
         btn_Converter_Altura.setOnClickListener(this)
         btn_voltar_Altura_Main.setOnClickListener(this)
+        spinner_Altura1.onItemSelectedListener = this
+        spinner_Altura2.onItemSelectedListener = this
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when(parent?.id) {
+            R.id.spinner_Altura1 -> opcao1 = parent?.getItemAtPosition(position).toString()
+            R.id.spinner_Altura2 -> opcao2 = parent?.getItemAtPosition(position).toString()
+            else -> {
+
+            }
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        opcao1 = "Cm"
+        opcao2 = "Foot"
     }
 
     override fun onClick(v: View?){
@@ -63,21 +57,21 @@ class Altura : AppCompatActivity(), View.OnClickListener {
         }
         var result : String = ""
 
-        result = when (tmp1) {
-            1 -> { //Foot
-                when(tmp2){
-                    1 -> temp.toString()             //foot para foot
-                    2 -> (temp!! * 30.48).toString() //foot para cm
+        result = when (opcao1) {
+            "Cm" -> { //Fcm
+                when(opcao2){
+                    "Cm"    -> temp.toString()             //cm para cm
+                    "Foot"  -> (temp!! / 30.48).toString() //cm para foot
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                         "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
             }
-            2 -> { //Cm
-                when(tmp2){
-                    1 -> (temp!! / 30.48).toString() //cm para foot
-                    2 -> temp.toString()             //cm para cm
+            "Foot" -> { //foot
+                when(opcao2){
+                    "Cm"    -> (temp!! * 30.48).toString() //foot para cm
+                    "Foot"  -> temp.toString()             //foot para foot
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                         "0" //Se nao foi selecionada uma medida para conversao

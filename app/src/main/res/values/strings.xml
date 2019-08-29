@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Conversao_Temperaturas</string>
+    <string-array name="opcoes_Altura1">
+        <item>Cm</item>
+        <item>Foot</item>
+    </string-array>
+    <string-array name="opcoes_Altura2">
+        <item>Foot</item>
+        <item>Cm</item>
+    </string-array>
 </resources>
