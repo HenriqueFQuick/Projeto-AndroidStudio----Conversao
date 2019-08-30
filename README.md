@@ -1,7 +1,6 @@
 # Projeto-AndroidStudio----Conversao_de_Medidas
 
-(Falta a parte do layout - deixar bonito
-Ideias: Colocar uma imagem de cada conversao e colocar a escolha da medida no topo da imagem)
+(Falta a parte do layout - deixar bonito)
 
 
 App para conversao de medidas feito no AndroidStudio com a linguagem Kotlin
