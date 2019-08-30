@@ -25,7 +25,7 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
             //calculo da distancia para cada opcao apresentada
             tmp1 = when (radio.id) {
                 R.id.op_miles1 -> 1 //Convertendo a partir de miles
-                R.id.op_Kg1 -> 2    //Convertendo a partir de Km
+                R.id.op_Km1 -> 2    //Convertendo a partir de Km
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
@@ -40,7 +40,7 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
             //calculo da distancia para cada opcao apresentada
             tmp2 = when (radio.id) {
                 R.id.op_miles2 -> 1 //Convertendo para miles
-                R.id.op_Kg2 -> 2    //Convertendo para Km
+                R.id.op_Km2 -> 2    //Convertendo para Km
                 else -> {
                     //Evitando erros ( improvavel de cair aqui)
                     Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()

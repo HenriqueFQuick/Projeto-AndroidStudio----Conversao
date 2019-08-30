@@ -34,9 +34,7 @@ class Altura : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         when(parent?.id) {
             R.id.spinner_Altura1 -> opcao1 = parent?.getItemAtPosition(position).toString()
             R.id.spinner_Altura2 -> opcao2 = parent?.getItemAtPosition(position).toString()
-            else -> {
-
-            }
+            else -> Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_LONG).show()
         }
     }
 

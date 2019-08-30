@@ -8,4 +8,14 @@
         <item>Foot</item>
         <item>Cm</item>
     </string-array>
+    <string-array name="opcoes_Peso1">
+        <item>Kg</item>
+        <item>Lbs</item>
+        <item>Kin</item>
+    </string-array>
+    <string-array name="opcoes_Peso2">
+        <item>Lbs</item>
+        <item>Kg</item>
+        <item>Kin</item>
+    </string-array>
 </resources>
