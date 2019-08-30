@@ -4,53 +4,49 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_distancia.*
 import kotlinx.android.synthetic.main.activity_peso.*
 
-class Distancia : AppCompatActivity(), View.OnClickListener {
+class Distancia : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    private var tmp1 : Int = 0
-    private var tmp2 : Int = 0
+    private var tmp1 : String = ""
+    private var tmp2 : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_distancia)
 
-        //verifica constantemente se o radiogroup1 foi alterado
-        radioGroup_Distancia1.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da distancia para cada opcao apresentada
-            tmp1 = when (radio.id) {
-                R.id.op_miles1 -> 1 //Convertendo a partir de miles
-                R.id.op_Km1 -> 2    //Convertendo a partir de Km
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Distancia1, android.R.layout.simple_spinner_item).also{ adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Distancia1.adapter = adapter
         }
-
-        //verifica constantemente se o radiogroup2 foi alterado
-        radioGroup_Distancia2.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da distancia para cada opcao apresentada
-            tmp2 = when (radio.id) {
-                R.id.op_miles2 -> 1 //Convertendo para miles
-                R.id.op_Km2 -> 2    //Convertendo para Km
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Distancia2, android.R.layout.simple_spinner_item).also{ adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Distancia2.adapter = adapter
         }
 
         btn_Converter_Distancia.setOnClickListener(this)
         btn_voltar_Distancia_Main.setOnClickListener(this)
+        spinner_Distancia1.onItemSelectedListener = this
+        spinner_Distancia2.onItemSelectedListener = this
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when(parent?.id){
+            R.id.spinner_Distancia1 -> tmp1 = parent.getItemAtPosition(position).toString()
+            R.id.spinner_Distancia2 -> tmp2 = parent.getItemAtPosition(position).toString()
+            else -> Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        tmp1 = "Km"
+        tmp2 = "Miles"
     }
 
     override fun onClick(v: View?) {
@@ -66,20 +62,20 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
         var result : String = ""
 
         result = when (tmp1) {
-            1 -> { //Miles
+            "Miles" -> { //Miles
                 when(tmp2){
-                    1 -> temp.toString()             //Miles para Miles
-                    2 -> (temp!! * 1.609).toString() //Miles para Km
+                    "Miles" -> temp.toString()             //Miles para Miles
+                    "Km" -> (temp!! * 1.609).toString() //Miles para Km
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                         "0" //Se nao foi selecionada uma medida para conversao
                     }
                 }
             }
-            2 -> { //Km
+            "Km" -> { //Km
                 when(tmp2){
-                    1 -> (temp!! / 1.609).toString() //Km para Miles
-                    2 -> temp.toString()             //Km para Km
+                    "Miles" -> (temp!! / 1.609).toString() //Km para Miles
+                    "Km" -> temp.toString()             //Km para Km
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_LONG).show()
                         "0" //Se nao foi selecionada uma medida para conversao
