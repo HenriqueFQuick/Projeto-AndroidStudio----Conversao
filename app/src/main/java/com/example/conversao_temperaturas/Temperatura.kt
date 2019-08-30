@@ -144,10 +144,7 @@ class Temperatura : AppCompatActivity(), View.OnClickListener, AdapterView.OnIte
             R.id.btn_Converter_Temperatura -> txt_Resultado_Temperatura.text = result
 
             //redirecionar para a activity Main
-            R.id.btn_voltar_Temperatura_Main -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
+            R.id.btn_voltar_Temperatura_Main -> finish()
         }
     }
 }

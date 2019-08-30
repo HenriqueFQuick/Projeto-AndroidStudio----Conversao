@@ -198,10 +198,7 @@ class Generico : AppCompatActivity(), View.OnClickListener {
             R.id.btn_Converter_Generico -> txt_Resultado_Generico.text = result
 
             //redirecionar para a activity Main
-            R.id.btn_voltar_Generico_Main ->{
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
+            R.id.btn_voltar_Generico_Main -> finish()
         }
     }
 }

@@ -91,11 +91,7 @@ class Altura : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             R.id.btn_Converter_Altura -> txt_Resultado_Altura.text = result
 
             //redirecionar para a activity Main
-            R.id.btn_voltar_Altura_Main ->{
-                //val intent = Intent(this, MainActivity::class.java)
-                //startActivity(intent)
-                finish()
-            }
+            R.id.btn_voltar_Altura_Main -> finish()
         }
     }
 }

@@ -116,10 +116,7 @@ class Peso : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelect
             R.id.btn_Converter_Peso -> txt_Resultado_Peso.text = result
 
             //redirecionar para a activity Main
-            R.id.btn_voltar_Peso_Main ->{
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
+            R.id.btn_voltar_Peso_Main -> finish()
         }
     }
 }

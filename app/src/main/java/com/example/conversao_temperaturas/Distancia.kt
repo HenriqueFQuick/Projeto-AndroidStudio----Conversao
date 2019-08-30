@@ -101,10 +101,7 @@ class Distancia : AppCompatActivity(), View.OnClickListener {
             R.id.btn_Converter_Distancia -> txt_Resultado_Distancia.text = result
 
             //redirecionar para a activity Main
-            R.id.btn_voltar_Distancia_Main ->{
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
+            R.id.btn_voltar_Distancia_Main -> finish()
         }
     }
 }
