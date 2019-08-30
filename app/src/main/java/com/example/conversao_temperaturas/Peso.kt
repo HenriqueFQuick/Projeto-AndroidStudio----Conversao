@@ -1,11 +1,15 @@
 package com.example.conversao_temperaturas
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
 import kotlinx.android.synthetic.main.activity_peso.*
@@ -17,6 +21,7 @@ class Peso : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelect
     private var tmp1 : String = ""
     private var tmp2 : String = ""
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_peso)
