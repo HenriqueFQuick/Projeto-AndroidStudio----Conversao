@@ -4,58 +4,49 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_altura.*
+import kotlinx.android.synthetic.main.activity_peso.*
 import kotlinx.android.synthetic.main.activity_temperatura.*
 
-class Temperatura : AppCompatActivity(), View.OnClickListener {
+class Temperatura : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    private var tmp1 : Int = 0
-    private var tmp2 : Int = 0
+    private var tmp1 : String = ""
+    private var tmp2 : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temperatura)
 
-        //verifica constantemente se o radiogroup1 foi alterado
-        radioGroup_Temperatura1.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da temperatura para cada opcao apresentada
-            tmp1 = when (radio.id) {
-                R.id.op_Kelvin1 -> 1     //Convertendo a partir de Kelvin
-                R.id.op_Fahrenheit1 -> 2 //Convertendo a partir de Fahrenheit
-                R.id.op_Reaumur1 -> 3    //Convertendo a partir de Reaumur
-                R.id.op_Rankine1 -> 4    //Convertendo a partir de Rankine
-                R.id.op_Celsius1 -> 5    //Convertendo a partir de Celsius
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Temperatura1, android.R.layout.simple_spinner_item).also{ adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Temperatura1.adapter = adapter
         }
-        //verifica constantemente se o radiogroup2 foi alterado
-        radioGroup_Temperatura2.setOnCheckedChangeListener { _ , checkedId ->
-            val radio: RadioButton = findViewById(checkedId)
-            //calculo da temperatura para cada opcao apresentada
-            tmp2 = when (radio.id) {
-                R.id.op_Kelvin2 -> 1      //Convertendo para Kelvin
-                R.id.op_Fahrenheit2 -> 2  //Convertendo para Fahrenheit
-                R.id.op_Reaumur2 -> 3     //Convertendo para Reaumur
-                R.id.op_Rankine2 -> 4     //Convertendo para Rankine
-                R.id.op_Celsius2 -> 5     //Convertendo para Celsius
-                else -> {
-                    //Evitando erros ( improvavel de cair aqui)
-                    Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_SHORT).show()
-                    0
-                }
-            }
+        ArrayAdapter.createFromResource(this, R.array.opcoes_Temperatura2, android.R.layout.simple_spinner_item).also{ adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner_Temperatura2.adapter = adapter
         }
 
         //listener do botao ( redireciona para o metodo onClick)
         btn_Converter_Temperatura.setOnClickListener(this)
         btn_voltar_Temperatura_Main.setOnClickListener(this)
+        spinner_Temperatura1.onItemSelectedListener = this
+        spinner_Temperatura2.onItemSelectedListener = this
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when(parent?.id){
+            R.id.spinner_Temperatura1 -> tmp1 = parent.getItemAtPosition(position).toString()
+            R.id.spinner_Temperatura2 -> tmp2 = parent.getItemAtPosition(position).toString()
+            else -> Toast.makeText(this, "Opcao Invalida", Toast.LENGTH_LONG).show()
+        }
+    }
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        tmp1 = "Celsius"
+        tmp2 = "Kelvin"
     }
 
     //metodo ativado quando o botao eh pressionado
@@ -73,67 +64,65 @@ class Temperatura : AppCompatActivity(), View.OnClickListener {
         var result : String = ""
 
         result = when (tmp1) {
-            1 -> { //Kelvin
+            "Kelvin" -> { //Kelvin
                 when(tmp2){
-                    1 -> (temp).toString()                                  //Kelvin para Kelvin
-                    2 -> (((temp!! - 273.15)* 9 / 5) + 32).toString()       //Kelvin para Fahrenheit
-                    3 -> ((temp!! - 273.15) * 4/5).toString()               //Kelvin para Reaumur
-                    4 -> (((temp!! - 273.15) * 9 / 5) + 491.67).toString()  //Kelvin para Rankine
-                    5 -> (temp!! - 273.15).toString()                       //Kelvin para Celsius
+                    "Kelvin" -> (temp).toString()                                  //Kelvin para Kelvin
+                    "Fahrenheit" -> (((temp!! - 273.15)* 9 / 5) + 32).toString()       //Kelvin para Fahrenheit
+                    "Reaumur" -> ((temp!! - 273.15) * 4/5).toString()               //Kelvin para Reaumur
+                    "Rankine" -> (((temp!! - 273.15) * 9 / 5) + 491.67).toString()  //Kelvin para Rankine
+                    "Celsius" -> (temp!! - 273.15).toString()                       //Kelvin para Celsius
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
                         "0"
                     }
                 }
             }
-            2 -> {  //Fahrenheit
+            "Fahrenheit" -> {  //Fahrenheit
                 when(tmp2){
-                    1 -> (((temp!! / 9 / 5) - 32) + 273.15).toString()              //Fahrenheit para Kelvin
-                    2 -> (temp).toString()                                          //Fahrenheit para Fahrenheit
-                    3 -> (((temp!! / 9 / 5) - 32) * 4/5).toString()                 //Fahrenheit para Reaumur
-                    4 -> ((((temp!! / 9 / 5) - 32) * 9 / 5) + 491.67).toString()    //Fahrenheit para Rankine
-                    5 -> ((temp!! * 9 / 5) + 32).toString()                         //Fahrenheit para Celsius
-                    else -> {
-                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
-                        "0"
-                    }
-                }
-                ((temp!! * 9 / 5) + 32).toString()
-            }
-            3 -> {  //Reaumur
-                when(tmp2){
-                    1 -> ((temp!! / 4/5) + 273.15).toString()           //Reaumur para Kelvin
-                    2 -> (((temp!! / 4/5)* 9 / 5) + 32).toString()      //Reaumur para Fahrenheit
-                    3 -> (temp).toString()                              //Reaumur para Reaumur
-                    4 -> (((temp!! / 4/5) * 9 / 5) + 491.67).toString() //Reaumur para Rankine
-                    5 -> (temp!! / 4/5).toString()                      //Reaumur para Celsius
+                    "Kelvin" -> (((temp!! / 9 / 5) - 32) + 273.15).toString()              //Fahrenheit para Kelvin
+                    "Fahrenheit" -> (temp).toString()                                          //Fahrenheit para Fahrenheit
+                    "Reaumur" -> (((temp!! / 9 / 5) - 32) * 4/5).toString()                 //Fahrenheit para Reaumur
+                    "Rankine" -> ((((temp!! / 9 / 5) - 32) * 9 / 5) + 491.67).toString()    //Fahrenheit para Rankine
+                    "Celsius" -> ((temp!! * 9 / 5) + 32).toString()                         //Fahrenheit para Celsius
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
                         "0"
                     }
                 }
             }
-            4 -> {  //Rankine
+            "Reaumur" -> {  //Reaumur
                 when(tmp2){
-                    1 -> (((temp!! / 9 / 5) - 491.67) + 273.15).toString()      //Rankine para Kelvin
-                    2 -> ((((temp!! / 9 / 5) - 491.67)* 9 / 5) + 32).toString() //Rankine para Fahrenheit
-                    3 -> (((temp!! / 9 / 5) - 491.67) * 4/5).toString()         //Rankine para Reaumur
-                    4 -> (temp).toString()                                      //Rankine para Rankine
-                    5 -> ((temp!! / 9 / 5) - 491.67).toString()                 //Rankine para Celsius
+                    "Kelvin" -> ((temp!! / 4/5) + 273.15).toString()           //Reaumur para Kelvin
+                    "Fahrenheit" -> (((temp!! / 4/5)* 9 / 5) + 32).toString()      //Reaumur para Fahrenheit
+                    "Reaumur" -> (temp).toString()                              //Reaumur para Reaumur
+                    "Rankine" -> (((temp!! / 4/5) * 9 / 5) + 491.67).toString() //Reaumur para Rankine
+                    "Celsius" -> (temp!! / 4/5).toString()                      //Reaumur para Celsius
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
                         "0"
                     }
                 }
-                ((temp!! / 9 / 5) - 491.67).toString()
             }
-            5 -> {  //Celsius
+            "Rankine" -> {  //Rankine
                 when(tmp2){
-                    1 -> (temp!! + 273.15).toString()           //Celsius para Kelvin
-                    2 -> ((temp!! * 9 / 5) + 32).toString()     //Celsius para Fahrenheit
-                    3 -> (temp!! * 4 / 5).toString()            //Celsius para Reaumur
-                    4 -> ((temp!! * 9 / 5) + 491.67).toString() //Celsius para Rankine
-                    5 -> (temp).toString()                      //Celsius para Celsius
+                    "Kelvin" -> (((temp!! / 9 / 5) - 491.67) + 273.15).toString()      //Rankine para Kelvin
+                    "Fahrenheit" -> ((((temp!! / 9 / 5) - 491.67)* 9 / 5) + 32).toString() //Rankine para Fahrenheit
+                    "Reaumur" -> (((temp!! / 9 / 5) - 491.67) * 4/5).toString()         //Rankine para Reaumur
+                    "Rankine" -> (temp).toString()                                      //Rankine para Rankine
+                    "Celsius" -> ((temp!! / 9 / 5) - 491.67).toString()                 //Rankine para Celsius
+                    else -> {
+                        Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
+                        "0"
+                    }
+                }
+            }
+            "Celsius" -> {  //Celsius
+                when(tmp2){
+                    "Kelvin" -> (temp!! + 273.15).toString()           //Celsius para Kelvin
+                    "Fahrenheit" -> ((temp!! * 9 / 5) + 32).toString()     //Celsius para Fahrenheit
+                    "Reaumur" -> (temp!! * 4 / 5).toString()            //Celsius para Reaumur
+                    "Rankine" -> ((temp!! * 9 / 5) + 491.67).toString() //Celsius para Rankine
+                    "Celsius" -> (temp).toString()                      //Celsius para Celsius
                     else -> {
                         Toast.makeText(this, "Selecione uma opcao", Toast.LENGTH_SHORT).show()
                         "0"

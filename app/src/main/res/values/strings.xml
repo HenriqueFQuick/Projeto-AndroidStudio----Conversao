@@ -8,6 +8,8 @@
         <item>Foot</item>
         <item>Cm</item>
     </string-array>
+
+
     <string-array name="opcoes_Peso1">
         <item>Kg</item>
         <item>Lbs</item>
@@ -17,5 +19,20 @@
         <item>Lbs</item>
         <item>Kg</item>
         <item>Kin</item>
+    </string-array>
+
+    <string-array name="opcoes_Temperatura1">
+        <item>Celsius</item>
+        <item>Kelvin</item>
+        <item>Fahrenheit</item>
+        <item>Reaumur</item>
+        <item>Rankine</item>
+    </string-array>
+    <string-array name="opcoes_Temperatura2">
+        <item>Kelvin</item>
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Reaumur</item>
+        <item>Rankine</item>
     </string-array>
 </resources>
